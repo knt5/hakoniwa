@@ -9,5 +9,14 @@ node_modules
 # Hidden meta data file of Mac OS X
 .DS_Store
 
+# Sass cache directory
+.sass-cache
+
+# Gulp working directory
+gulp/work/
+
 # GSI and JAXA data directory
 /data/
+
+# Generated HTML files
+/*.html
