@@ -20,3 +20,6 @@ gulp/work/
 
 # Generated HTML files
 /*.html
+
+# Three.js repository
+/three.js
