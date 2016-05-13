@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+node_modules
+
+# Hidden meta data file of Mac OS X
+.DS_Store
+
+# GSI and JAXA data directory
+/data/
