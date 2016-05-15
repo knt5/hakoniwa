@@ -6,7 +6,8 @@ module.exports = {
 		'es6'
 	],
 	globals: {
-		'$': true
+		'$': true,
+		'google': true
 	},
 	rules: {
 		'camelcase': 2,
@@ -23,6 +24,7 @@ module.exports = {
 		'no-console': 1,
 		'no-spaced-func': 2,
 		'no-trailing-spaces': [2, { 'skipBlankLines': true }],
+		'no-unused-vars': 1,
 		'no-whitespace-before-property': 2,
 		'quotes': [2, 'single'],
 		'semi': [2, 'always'],
