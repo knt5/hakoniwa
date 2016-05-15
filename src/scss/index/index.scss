@@ -19,7 +19,7 @@
 	z-index: 9000;
 	
 	h1 {
-		font-size: 24px;
+		font-size: 38px;
 		font-weight: normal;
 	}
 	
@@ -51,4 +51,9 @@
 		}
 	}
 	
+	.header {
+		h1 {
+			font-size: 24px;
+		}
+	}
 }

@@ -1,5 +1,5 @@
-
 //=====================================================================
+// Global variables
 
 // DOM
 var $window = $(window);
@@ -10,36 +10,16 @@ var $map = $('#map');
 var map;
 
 //=====================================================================
+// Event handler
 
-// on window resize
+// On window resize
 function onResize() {
 	$canvas.height($window.height());
 }
 $window.on('resize', onResize);
 
-// init
+//=====================================================================
+// Initialize
+
+// Init 3D canvas div size
 onResize();
-
-//=====================================================================
-// maps
-
-// Google maps init callback
-function initMap() {
-	map = new google.maps.Map($map.get(0), {
-		center: { lat: 35.68, lng: 139.76 },
-		zoom: 10
-	});
-}
-
-//=====================================================================
-// 3D
-
-
-
-
-
-
-
-
-
-
