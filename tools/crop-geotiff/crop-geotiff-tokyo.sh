@@ -7,4 +7,4 @@ target="N035E139"
 coordinates="139.68 35.76 139.81 35.61"
 
 # crop
-bash crop-geotiff.sh "$target" "$coordinates"
+bash crop-geotiff.sh "$target" "$coordinates" png
