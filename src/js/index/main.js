@@ -42,10 +42,10 @@ var workContext = $workCanvas.get(0).getContext('2d');
 	
 	//-----------------------------------------------
 	// Initialize work canvas
-	$workCanvas.width(100);
-	$workCanvas.height(100);
-	$workCanvas.prop('width', 100);
-	$workCanvas.prop('height', 100);
+	$workCanvas.width(config.work.width);
+	$workCanvas.height(config.work.height);
+	$workCanvas.prop('width', config.work.width);
+	$workCanvas.prop('height', config.work.height);
 	
 	//-----------------------------------------------
 	// Load default DSM
@@ -61,6 +61,8 @@ var workContext = $workCanvas.get(0).getContext('2d');
 		$dsmCanvas.prop('width', w);
 		$dsmCanvas.prop('height', h);
 		dsmContext.drawImage(dsmImage, 0, 0);
+		config.dsm.image = dsmImage;
+		hakoniwa.init();
 	};
 	
 	// DSM mask
@@ -74,5 +76,7 @@ var workContext = $workCanvas.get(0).getContext('2d');
 		$maskCanvas.prop('width', w);
 		$maskCanvas.prop('height', h);
 		maskContext.drawImage(maskImage, 0, 0);
+		config.dsm.maskImage = maskImage;
+		hakoniwa.init();
 	};
 })();
