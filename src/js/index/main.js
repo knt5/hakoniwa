@@ -17,6 +17,7 @@ var map;
 // Canvas context
 var dsmContext = $dsmCanvas.get(0).getContext('2d');
 var maskContext = $maskCanvas.get(0).getContext('2d');
+var workContext = $workCanvas.get(0).getContext('2d');
 
 //=====================================================================
 // Initialize & register event hanlders
