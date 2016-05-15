@@ -4,7 +4,7 @@ JAXA ALOS DSM 3D visualizer
 
 # Build developmnt enviroment
 
-Install QGIS and set path to GDAL.framework "Programs" directory (on Mac).
+Install [QGIS](http://www.qgis.org/) and set path to GDAL.framework "Programs" directory (on Mac).
 
 Install gems for gulp tasks.
 
