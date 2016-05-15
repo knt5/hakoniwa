@@ -3,13 +3,13 @@
 
 // DOM
 var $window = $(window);
-var $canvas = $('#canvas');
-var $map = $('#map');
-var $message = $('#message');
-var $error = $('#error');
+var $stage = $('#stage');
 var $dsmCanvas = $('#dsm-canvas');
 var $maskCanvas = $('#mask-canvas');
 var $workCanvas = $('#work-canvas');
+var $map = $('#map');
+var $message = $('#message');
+var $error = $('#error');
 
 // Google maps map object
 var map;
@@ -28,7 +28,7 @@ var maskContext = $maskCanvas.get(0).getContext('2d');
 	
 	// On window resize
 	function onResize() {
-		$canvas.height($window.height());
+		$stage.height($window.height());
 	}
 	$window.on('resize', onResize);
 	
