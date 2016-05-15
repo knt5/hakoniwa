@@ -6,59 +6,72 @@ var $window = $(window);
 var $canvas = $('#canvas');
 var $map = $('#map');
 var $message = $('#message');
+var $error = $('#error');
+var $dsmCanvas = $('#dsm-canvas');
+var $maskCanvas = $('#mask-canvas');
+var $workCanvas = $('#work-canvas');
 
 // Google maps map object
 var map;
 
-// Config
-var config = {
-	// GeoTiff
-	defaultGeoTiff: 'assets/dsm/N035E139.tif',
+// Canvas context
+var dsmContext = $dsmCanvas.get(0).getContext('2d');
+var maskContext = $maskCanvas.get(0).getContext('2d');
+
+//=====================================================================
+// Initialize & register event hanlders
+
+// Not need to wait document ready
+(function() {
+	//=====================================================================
+	// Event handler
 	
-	// Default GeoTiff mask
-	defaultGeoTiffMask: 'assets/dsm/N035E139.mask.tif'
-};
-
-//=====================================================================
-// Event handler
-
-// On window resize
-function onResize() {
-	$canvas.height($window.height());
-}
-$window.on('resize', onResize);
-
-//=====================================================================
-// Initialize
-
-// Init 3D canvas div size
-onResize();
-
-//=====================================================================
-// Load default GeoTiff from online
-$.ajax(config.defaultGeoTiff, {
-	success: function(data) {
-		
-		/*
-		var tiff = GeoTIFF.parse(data);
-		var image = tiff.getImage();
-		var rasters = image.readRasters(function() {
-			var canvas = document.getElementById('plot');
-			var plot = new plotty.plot({
-				canvas: canvas,
-				data: rasters[0],
-				width: image.getWidth(),
-				height: image.getHeight(),
-				domain: [0, 256],
-				colorScale: 'viridis'
-			});
-			plot.render();
-		});
-		*/
-		//console.log(image);
-		
-	},
-	error: function() {
-		$message.text('Load failed. Please reload.');
+	// On window resize
+	function onResize() {
+		$canvas.height($window.height());
 	}
-});
+	$window.on('resize', onResize);
+	
+	//=====================================================================
+	// Initialize
+	
+	//-----------------------------------------------
+	// Initialize 3D canvas div size
+	onResize();
+	
+	//-----------------------------------------------
+	// Initialize work canvas
+	$workCanvas.width(100);
+	$workCanvas.height(100);
+	$workCanvas.prop('width', 100);
+	$workCanvas.prop('height', 100);
+	
+	//-----------------------------------------------
+	// Load default DSM
+	
+	// DSM
+	var dsmImage = new Image();
+	dsmImage.src = config.dsm.path;
+	dsmImage.onload = function() {
+		var w = dsmImage.width;
+		var h = dsmImage.height;
+		$dsmCanvas.width(w);
+		$dsmCanvas.height(h);
+		$dsmCanvas.prop('width', w);
+		$dsmCanvas.prop('height', h);
+		dsmContext.drawImage(dsmImage, 0, 0);
+	};
+	
+	// DSM mask
+	var maskImage = new Image();
+	maskImage.src = config.dsm.maskPath;
+	maskImage.onload = function() {
+		var w = maskImage.width;
+		var h = maskImage.height;
+		$maskCanvas.width(w);
+		$maskCanvas.height(h);
+		$maskCanvas.prop('width', w);
+		$maskCanvas.prop('height', h);
+		maskContext.drawImage(maskImage, 0, 0);
+	};
+})();

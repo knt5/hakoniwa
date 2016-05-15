@@ -1,6 +1,16 @@
 @import '../common/base/base';
 @import '3d';
 
+//=====================================================================
+// utils
+
+.hidden {
+	display: none;
+}
+
+//=====================================================================
+// parts
+
 .main {
 	position: relative;
 	background: #000;
@@ -29,6 +39,12 @@
 }
 
 .message {
+	margin-top: 4px;
+	font-size: 14px;
+}
+
+.error {
+	margin-top: 4px;
 	font-size: 14px;
 	color: #f00;
 }
@@ -41,6 +57,9 @@
 	right: 0;
 	z-index: 9000;
 }
+
+//=====================================================================
+// media query
 
 // iPhone 6 Plus
 @media (max-width: 414px) {
