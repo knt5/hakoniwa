@@ -22,7 +22,7 @@ mskSrc="${dir}/${target}_MED_MSK.tif"
 destDir="../../data/"
 
 # crop DSM
-gdal_translate -projwin $coordinates "${dsmSrc}" "${destDir}/${target}.tif"
+gdal_translate -co COMPRESS=PACKBITS -projwin $coordinates "${dsmSrc}" "${destDir}/${target}.tif"
 
 # crop MSK
-gdal_translate -projwin $coordinates "${mskSrc}" "${destDir}/${target}.msk.tif"
+gdal_translate -co COMPRESS=PACKBITS -projwin $coordinates "${mskSrc}" "${destDir}/${target}.mask.tif"
