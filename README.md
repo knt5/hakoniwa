@@ -2,7 +2,7 @@
 
 JAXA ALOS DSM 3D visualizer
 
-# Build developmnt enviroment
+# Build development environment
 
 Install [QGIS](http://www.qgis.org/) and set path to GDAL.framework "Programs" directory (on Mac).
 
