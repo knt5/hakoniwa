@@ -13,5 +13,8 @@ var config = {
 	work: {
 		width: 100,
 		height: 100
+	},
+	dot: {
+		size: 3
 	}
 };
