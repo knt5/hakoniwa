@@ -92,7 +92,7 @@ var hakoniwa = (function(parent) {
 	function animate() {
 		requestAnimationFrame(animate);
 		
-		camera.rotation.z += 0.1;
+		camera.rotation.z += 0.01;
 		
 		renderer.render(scene, camera);
 	}
