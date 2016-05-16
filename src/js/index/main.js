@@ -22,8 +22,7 @@ var workContext = $workCanvas.get(0).getContext('2d');
 //=====================================================================
 // Initialize & register event hanlders
 
-// Not need to wait document ready
-(function() {
+$(document).ready(function() {
 	//=====================================================================
 	// Event handler
 	
@@ -79,4 +78,4 @@ var workContext = $workCanvas.get(0).getContext('2d');
 		config.dsm.maskImage = maskImage;
 		hakoniwa.init();
 	};
-})();
+});
