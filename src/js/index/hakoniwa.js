@@ -104,7 +104,7 @@ var hakoniwa = (function() {
 		requestAnimationFrame( animate );
 		renderer.render(scene, camera);
 		
-		camera.rotation.order = "ZYX";
+		camera.rotation.order = 'ZYX';
 		camera.rotation.z += 0.1;
 	}
 	
