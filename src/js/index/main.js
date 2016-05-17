@@ -7,6 +7,7 @@ var $stage = $('#stage');
 var $dsmCanvas = $('#dsm-canvas');
 var $maskCanvas = $('#mask-canvas');
 var $workCanvas = $('#work-canvas');
+var $workMaskCanvas = $('#work-mask-canvas');
 var $map = $('#map');
 var $message = $('#message');
 var $error = $('#error');
@@ -14,10 +15,14 @@ var $error = $('#error');
 // Google maps map object
 var map;
 
+// three.js parameters
+var camera, renderer;
+
 // Canvas context
 var dsmContext = $dsmCanvas.get(0).getContext('2d');
 var maskContext = $maskCanvas.get(0).getContext('2d');
 var workContext = $workCanvas.get(0).getContext('2d');
+var workMaskContext = $workMaskCanvas.get(0).getContext('2d');
 
 //=====================================================================
 // Initialize & register event hanlders
@@ -28,7 +33,15 @@ $(document).ready(function() {
 	
 	// On window resize
 	function onResize() {
+		// Change stage height (width is auto)
 		$stage.height($window.height());
+		
+		// Update three.js
+		if (camera && renderer) {
+			camera.aspect = $stage.width() / $stage.height();
+			camera.updateProjectionMatrix();
+			renderer.setSize($stage.width(), $stage.height());
+		}
 	}
 	$window.on('resize', onResize);
 	
@@ -45,6 +58,11 @@ $(document).ready(function() {
 	$workCanvas.height(config.work.height);
 	$workCanvas.prop('width', config.work.width);
 	$workCanvas.prop('height', config.work.height);
+	
+	$workMaskCanvas.width(config.work.width);
+	$workMaskCanvas.height(config.work.height);
+	$workMaskCanvas.prop('width', config.work.width);
+	$workMaskCanvas.prop('height', config.work.height);
 	
 	//-----------------------------------------------
 	// Load default DSM
