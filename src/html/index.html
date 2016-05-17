@@ -25,6 +25,7 @@
 	<canvas id="dsm-canvas" class="hidden"></canvas>
 	<canvas id="mask-canvas" class="hidden"></canvas>
 	<canvas id="work-canvas" class="hidden"></canvas>
+	<canvas id="work-mask-canvas" class="hidden"></canvas>
 	
 	<div id="main" class="main">
 		<div id="stage" class="stage">
@@ -43,10 +44,12 @@
 	</div>
 	
 	<!-- ========================= js ========================= -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsCy6ieDrZgPDMgZjUTK2WqAyBGn3SdII&callback=initMap" async defer></script>
 	<script src="assets/js/lib/jquery.min.js?v=3.0.0-beta1"></script>
 	<script src="assets/js/lib/three.min.js?v=r76"></script>
+	<script src="assets/js/lib/TrackballControls.js"></script>
+	<script src="assets/js/lib/dat.gui.min.js?v=0.5.1"></script>
 	<script>{{{ javascript }}}</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsCy6ieDrZgPDMgZjUTK2WqAyBGn3SdII&callback=initMap" async defer></script>
 	<script src="/assets/js/analytics.js"></script>
 	
 </body>
