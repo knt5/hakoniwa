@@ -421,8 +421,10 @@ var hakoniwa = (function() {
 			pointLights[1].position.z = pointLightRadius * Math.cos(-radian);
 		}
 		
-		updateWorkAreaPositionByAutoPilot();
-		update();
+		if (gui.autoPilotEnabled) {
+			updateWorkAreaPositionByAutoPilot();
+			update();
+		}
 		
 		//cubeCamera.updateCubeMap( renderer, scene );
 		
