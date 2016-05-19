@@ -10,6 +10,7 @@ var hakoniwa = (function() {
 	var dsm = config.dsm;
 	var size = config.cube.size;
 	var work = config.work;
+	var gui = config.gui;
 	
 	// three.js
 	var scene;
@@ -19,7 +20,7 @@ var hakoniwa = (function() {
 	//var cubeCamera;
 	
 	// camera position
-	var radius = 130;
+	var radius = 145;
 	var radian = -1;
 	//var theta = 0;
 	
@@ -28,7 +29,6 @@ var hakoniwa = (function() {
 	
 	// auto pilot status
 	var autoPilot = {
-		enabled: true,
 		up: false,
 		down: false,
 		right: true,
@@ -38,12 +38,16 @@ var hakoniwa = (function() {
 			west: 0
 		},
 		reachedTop: false,
-		prevLeft: false,
-		speed: 1
+		prevLeft: false
 	};
 	
-	// height scale
-	var heightSclae = 4;
+	//-----------------------------------------------------------------
+	// dat.GUI
+	var datGui = new dat.GUI();
+	datGui.add(gui, 'autoPilotEnabled');
+	datGui.add(gui, 'autoPilotSpeed', 0.5, 30);
+	datGui.add(gui, 'elevationScale', 1, 10);
+	$datGui.append(datGui.domElement);
 	
 	//-----------------------------------------------------------------
 	function isReady() {
@@ -58,8 +62,6 @@ var hakoniwa = (function() {
 	}
 	
 	//-----------------------------------------------------------------
-	//
-	
 	// Get work x on dsm canvas
 	function getWorkDsmX() {
 		return (work.west - dsm.west) / dsm.pixelSize;
@@ -177,11 +179,10 @@ var hakoniwa = (function() {
 				mesh.material.color.setHex(getElevationColor(elevation, water));
 				
 				// Set scale
-				//mesh.geometry.parameters.height = elevation / 3 * (heightSclae * 0.1);
-				mesh.scale.y = elevation / 3 * (heightSclae * 0.1);
+				mesh.scale.y = elevation / 3 * (gui.elevationScale * 0.1);
 				
 				// Set position
-				mesh.position.y = elevation / 2 * (heightSclae * 0.1);
+				mesh.position.y = elevation / 2 * (gui.elevationScale * 0.1);
 				
 				// Update
 				mesh.updateMatrix();
@@ -231,7 +232,7 @@ var hakoniwa = (function() {
 		
 		// camera
 		camera = new THREE.PerspectiveCamera(45, $stage.width() / $stage.height(), 1, 1000);
-		camera.position.set(radius/1.3, radius/1.4, radius);
+		camera.position.set(radius/1.7, radius/1.4, radius);
 		camera.lookAt(scene.position);
 		
 		// renderer
@@ -322,12 +323,12 @@ var hakoniwa = (function() {
 	//-----------------------------------------------------------------
 	// Auto pilot
 	function updateWorkAreaPositionByAutoPilot() {
-		if (!autoPilot.enabled) {
+		if (!gui.autoPilotEnabled) {
 			return;
 		}
 		
 		if (autoPilot.up) {
-			work.north += dsm.pixelSize * autoPilot.speed;
+			work.north += dsm.pixelSize * gui.autoPilotSpeed;
 			
 			// reached dsm top
 			if (work.north >= dsm.north) {
@@ -339,7 +340,7 @@ var hakoniwa = (function() {
 				work.north >= autoPilot.turned.north + dsm.pixelSize * work.height
 			) {
 				autoPilot.up = false;
-				work.north -= dsm.pixelSize * autoPilot.speed;
+				work.north -= dsm.pixelSize * gui.autoPilotSpeed;
 				
 				if (autoPilot.prevLeft) {
 					autoPilot.right = true;
@@ -351,12 +352,12 @@ var hakoniwa = (function() {
 			}
 			
 		} else if (autoPilot.down) {
-			work.north -= dsm.pixelSize * autoPilot.speed;
+			work.north -= dsm.pixelSize * gui.autoPilotSpeed;
 			
 			// moved enough
 			if (work.north - dsm.pixelSize * work.height <= dsm.south) {
 				autoPilot.down = false;
-				work.north += dsm.pixelSize * autoPilot.speed;
+				work.north += dsm.pixelSize * gui.autoPilotSpeed;
 				
 				if (autoPilot.prevLeft) {
 					autoPilot.right = true;
@@ -368,11 +369,11 @@ var hakoniwa = (function() {
 			}
 			
 		} else if (autoPilot.right) {
-			work.west += dsm.pixelSize * autoPilot.speed;
+			work.west += dsm.pixelSize * gui.autoPilotSpeed;
 			
 			if (work.west + dsm.pixelSize * work.width >= dsm.east) {
 				autoPilot.right = false;
-				work.west -= dsm.pixelSize * autoPilot.speed;
+				work.west -= dsm.pixelSize * gui.autoPilotSpeed;
 				
 				if (autoPilot.reachedTop) {
 					autoPilot.down = true;
@@ -385,11 +386,11 @@ var hakoniwa = (function() {
 			}
 			
 		} else if (autoPilot.left) {
-			work.west -= dsm.pixelSize * autoPilot.speed;
+			work.west -= dsm.pixelSize * gui.autoPilotSpeed;
 			
 			if (work.west <= dsm.west) {
 				autoPilot.left = false;
-				work.west += dsm.pixelSize * autoPilot.speed;
+				work.west += dsm.pixelSize * gui.autoPilotSpeed;
 				
 				if (autoPilot.reachedTop) {
 					autoPilot.down = true;

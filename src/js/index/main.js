@@ -8,6 +8,7 @@ var $dsmCanvas = $('#dsm-canvas');
 var $maskCanvas = $('#mask-canvas');
 var $workCanvas = $('#work-canvas');
 var $workMaskCanvas = $('#work-mask-canvas');
+var $datGui = $('#dat-gui');
 var $map = $('#map');
 var $message = $('#message');
 var $error = $('#error');

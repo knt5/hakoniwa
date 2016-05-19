@@ -8,7 +8,8 @@ module.exports = {
 	globals: {
 		'$': true,
 		'google': true,
-		'THREE': true
+		'THREE': true,
+		'dat': true
 	},
 	rules: {
 		'camelcase': 2,

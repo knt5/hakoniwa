@@ -48,12 +48,19 @@
 	color: #f00;
 }
 
+.dat-gui {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 9000;
+}
+
 .map {
 	position: absolute;
-	width: 300px;
-	height: 200px;
 	bottom: 0;
 	right: 0;
+	width: 300px;
+	height: 200px;
 	z-index: 9000;
 }
 

@@ -26,5 +26,11 @@ var config = {
 	},
 	cube: {
 		size: 3
+	},
+	gui: {
+		// dat.GUI config
+		autoPilotEnabled: true,
+		autoPilotSpeed: 1,
+		elevationScale: 4
 	}
 };
