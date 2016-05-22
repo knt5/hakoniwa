@@ -11,6 +11,15 @@
 	<meta name="twitter:description" content="3D visualizer of elevation data including the height of buildings, which was recorded by the Satellite of JAXA.">
 	<meta name="twitter:image:src" content="https://knt5.github.io/assets/img/twitter/summary-large-image/hakoniwa.jpg">
 	<!-- ========================= << Twitter tag ========================= -->
+	<!-- ========================= Facebook tag >> ========================= -->
+	<meta property="fb:app_id" content="824397874371935">
+	<meta property="og:url" content="https://knt5.github.io/demo/hakoniwa/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Hakoniwa">
+	<meta property="og:site_name" content="Hakoniwa">
+	<meta property="og:description" content="3D visualizer of elevation data including the height of buildings, which was recorded by the Satellite of JAXA.">
+	<meta property="og:image" content="https://knt5.github.io/assets/img/twitter/summary-large-image/hakoniwa.jpg">
+	<!-- ========================= << Facebook tag ========================= -->
 	<title>Hakoniwa</title>
 	<link rel="icon" type="image/png" href="assets/img/favicon.png">
 	<link rel="apple-touch-icon" type="image/png" href="assets/img/favicon.png">
@@ -18,17 +27,22 @@
 </head>
 <body>
 	
+	<!-- ========================= canvas ========================= -->
 	<canvas id="dsm-canvas" class="hidden"></canvas>
 	<canvas id="mask-canvas" class="hidden"></canvas>
 	<canvas id="work-canvas" class="hidden"></canvas>
 	<canvas id="work-mask-canvas" class="hidden"></canvas>
 	
+	<!-- ========================= main ========================= -->
 	<div id="main" class="main">
 		<div id="stage" class="stage">
 		</div>
 		<header class="header">
 			<h1>Hakoniwa</h1>
 			<p>JAXA ALOS DSM 3D visualizer © <a href="https://knt5.github.io/" target="_blank">knt5</a></p>
+			<div class="facebook">
+				<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fknt5.github.io%2Fdemo%2Fhakoniwa%2F&width=164&layout=button_count&action=like&show_faces=false&share=true&height=46&appId=824397874371935" width="164" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+			</div>
 			<div id="message" class="message"></div>
 			<div id="error" class="error"></div>
 		</header>
@@ -36,6 +50,7 @@
 		<div id="map" class="map"></div>
 	</div>
 	
+	<!-- ========================= github ribbon ========================= -->
 	<div class="github-ribbon">
 		<a href="https://github.com/knt5/hakoniwa"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 	</div>
