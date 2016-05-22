@@ -1,6 +1,10 @@
 # Hakoniwa
 
-JAXA ALOS DSM 3D visualizer
+3D visualizer of elevation data including the height of buildings (DSM), which was recorded by the Advanced Land Observing Satellite "Daichi" of JAXA.
+
+Demo: https://knt5.github.io/demo/hakoniwa/
+
+This demo is a visualizer of elevation data with real height of Tokyo buildings. It's Real Minecraft.
 
 # Build development environment
 
