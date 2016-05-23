@@ -43,7 +43,9 @@ var hakoniwa = (function() {
 	
 	//-----------------------------------------------------------------
 	// dat.GUI
-	var datGui = new dat.GUI();
+	var datGui = new dat.GUI({
+		autoPlace: false
+	});
 	datGui.add(gui, 'autoPilotEnabled');
 	datGui.add(gui, 'autoPilotSpeed', 0.5, 30);
 	datGui.add(gui, 'elevationScale', 1, 10);
