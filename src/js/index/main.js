@@ -34,8 +34,17 @@ $(document).ready(function() {
 	
 	// On window resize
 	function onResize() {
+		var height = $window.height();
+		
+		// Fix size on Facebook WebView
+		if (window.navigator.userAgent.toLowerCase().indexOf('fban/fbios;fbav') != -1 &&
+			$window.width() <= 414
+		) {
+			height -= 100;
+		}
+		
 		// Change stage height (width is auto)
-		$stage.height($window.height());
+		$stage.height(height);
 		
 		// Update three.js
 		if (camera && renderer) {
