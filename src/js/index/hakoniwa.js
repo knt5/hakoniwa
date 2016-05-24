@@ -49,6 +49,9 @@ var hakoniwa = (function() {
 	datGui.add(gui, 'autoPilotEnabled');
 	datGui.add(gui, 'autoPilotSpeed', 0.5, 30);
 	datGui.add(gui, 'elevationScale', 1, 10);
+	datGui.add(gui, 'wireframe');
+	datGui.add(gui, 'roughness', 0, 1);
+	datGui.add(gui, 'metalness', 0, 1);
 	$datGui.append(datGui.domElement);
 	
 	//-----------------------------------------------------------------
@@ -164,8 +167,14 @@ var hakoniwa = (function() {
 	// Update style of cubes
 	function updateCubeStyle() {
 		var x, y;
+		
 		var workImageData = workContext.getImageData(0, 0, work.width, work.height);
 		var workMaskImageData = workMaskContext.getImageData(0, 0, work.width, work.height);
+		
+		var wireframeChanged = false;
+		var roughnessChanged = false;
+		var metalnessChanged = false;
+		
 		for (y=0; y<work.height; y++) {
 			for (x=0; x<work.width; x++) {
 				// Get elevation
@@ -178,7 +187,39 @@ var hakoniwa = (function() {
 				var mesh = cubes[y][x];
 				
 				// Set color
-				mesh.material.color.setHex(getElevationColor(elevation, water));
+				var color = getElevationColor(elevation, water);
+				if (color !== mesh.material.color.getHex()) {
+					mesh.material.color.setHex(color);
+				}
+				
+				// Set wireframe, roughness and metalness
+				if (x === 0 && y === 0) {
+					// Check wireframe
+					if ((gui.wireframe && !mesh.material.wireframe) ||
+						(!gui.wireframe && mesh.material.wireframe)
+					) {
+						wireframeChanged = true;
+					}
+					
+					// Check roughness
+					if (mesh.material.roughness !== gui.roughness) {
+						roughnessChanged = true;
+					}
+					
+					// Check metalness
+					if (mesh.material.metalness !== gui.metalness) {
+						metalnessChanged = true;
+					}
+				}
+				if (wireframeChanged) {
+					mesh.material.wireframe = !mesh.material.wireframe;
+				}
+				if (roughnessChanged) {
+					mesh.material.roughness = gui.roughness;
+				}
+				if (metalnessChanged) {
+					mesh.material.metalness = gui.metalness;
+				}
 				
 				// Set scale
 				mesh.scale.y = elevation / 3 * (gui.elevationScale * 0.1);

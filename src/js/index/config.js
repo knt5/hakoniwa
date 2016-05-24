@@ -25,6 +25,9 @@ var config = {
 		// dat.GUI config
 		autoPilotEnabled: true,
 		autoPilotSpeed: 1,
-		elevationScale: 4
+		elevationScale: 4,
+		wireframe: false,
+		roughness: 0.5,
+		metalness: 0.5
 	}
 };
