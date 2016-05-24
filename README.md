@@ -4,6 +4,8 @@
 
 Demo: https://knt5.github.io/demo/hakoniwa/
 
+![screen shot](https://knt5.github.io/assets/img/twitter/summary-large-image/hakoniwa.jpg)
+
 This demo is a visualizer of elevation data with real height of Tokyo buildings. It's Real Minecraft.
 
 # Build development environment
