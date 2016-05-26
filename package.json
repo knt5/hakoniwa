@@ -1,7 +1,6 @@
 {
-  "name": "hakoniwa",
-  "version": "0.1.0",
-  "description": "JAXA ALOS DSM 3D visualizer",
+  "private": true,
+  "name": "Hakoniwa",
   "author": "knt5",
   "devDependencies": {
     "glob": "^7.0.3",
