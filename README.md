@@ -10,7 +10,7 @@ This demo is a visualizer of elevation data with real height of Tokyo buildings.
 
 # Build development environment
 
-Install [QGIS](http://www.qgis.org/) and set path to GDAL.framework "Programs" directory (on Mac).
+Install [QGIS](http://www.qgis.org/) and add GDAL.framework "Programs" directory to PATH (on Mac).
 
 Install gems for gulp tasks.
 
