@@ -286,7 +286,6 @@ var hakoniwa = (function() {
 		// trackball
 		trackball = new THREE.TrackballControls(camera, $stage.get(0));
 		trackball.staticMoving = true;
-		trackball.dynamicDampingFactor = 1.0;
 		
 		//-------------------------------------------------
 		// [3D] Light
