@@ -359,7 +359,7 @@ var hakoniwa = (function() {
 		
 		//-------------------------------------------------
 		// [3D] Start animation
-		animate();
+		requestAnimationFrame(animate);
 	}
 	
 	//-----------------------------------------------------------------
@@ -479,8 +479,8 @@ var hakoniwa = (function() {
 	
 	//-----------------------------------------------------------------
 	function animate() {
-		requestAnimationFrame(animate);
 		render();
+		requestAnimationFrame(animate);
 	}
 	
 	//-----------------------------------------------------------------
