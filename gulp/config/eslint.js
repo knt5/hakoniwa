@@ -3,10 +3,10 @@ module.exports = {
 	envs: [
 		'browser',
 		'node',
-		'es6'
+		'es6',
+		'jquery'
 	],
 	globals: {
-		'$': true,
 		'google': true,
 		'THREE': true,
 		'dat': true

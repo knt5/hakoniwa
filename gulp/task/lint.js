@@ -6,7 +6,7 @@ var eslint = require('gulp-eslint');
 var config = require('../config/config');
 
 // HTML hint task
-gulp.task('htmlhint:built', function() {
+gulp.task('lint:html:built', function() {
 	return gulp.src(config.lint.targets.built.html)
 	.pipe(plumber())
 	.pipe(htmlhint())
@@ -14,7 +14,7 @@ gulp.task('htmlhint:built', function() {
 });
 
 // SCSS lint task
-gulp.task('scsslint', function() {
+gulp.task('lint:scss', function() {
 	return gulp.src(config.lint.targets.scss)
 	.pipe(plumber())
 	.pipe(scsslint({
@@ -23,7 +23,7 @@ gulp.task('scsslint', function() {
 });
 
 // JavaScript lint task
-gulp.task('eslint', function() {
+gulp.task('lint:js', function() {
 	return gulp.src(config.lint.targets.js)
 	.pipe(plumber())
 	.pipe(eslint(config.eslint))
@@ -32,7 +32,7 @@ gulp.task('eslint', function() {
 });
 
 // Built JavaScript lint task
-gulp.task('eslint:built', function() {
+gulp.task('lint:js:built', function() {
 	return gulp.src(config.lint.targets.built.js)
 	.pipe(plumber())
 	.pipe(eslint(config.eslint))
@@ -42,8 +42,8 @@ gulp.task('eslint:built', function() {
 
 // Lint all
 gulp.task('lint', [
-	'htmlhint:built',
-	'scsslint',
-	'eslint',
-	'eslint:built'
+	'lint:html:built',
+	'lint:scss',
+	'lint:js',
+	'lint:js:built'
 ]);
