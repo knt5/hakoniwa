@@ -8,7 +8,7 @@ Demo: https://knt5.github.io/demo/hakoniwa/
 
 This demo is a visualizer of elevation data with real height of Tokyo buildings. It's Real Minecraft.
 
-# Build development environment
+## Build development environment
 
 Install [QGIS](http://www.qgis.org/) and add GDAL.framework "Programs" directory to PATH (on Mac).
 
@@ -25,3 +25,7 @@ Run npm install.
 npm install -g gulp
 npm install
 ```
+
+## Memo
+
+Three.js r77 is slower than r76, so I'm using r76.
