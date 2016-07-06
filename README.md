@@ -8,7 +8,7 @@ Demo: https://knt5.github.io/demo/hakoniwa/
 
 This demo is a visualizer of elevation data with real height of Tokyo buildings. It's Real Minecraft.
 
-## Installation
+## Installation to develop
 
 Install [QGIS](http://www.qgis.org/) and add GDAL.framework "Programs" directory to PATH (on Mac).
 
