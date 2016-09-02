@@ -281,6 +281,9 @@ var hakoniwa = (function() {
 		// renderer
 		renderer = new THREE.WebGLRenderer();
 		renderer.setSize($stage.width(), $stage.height());
+		if (window.devicePixelRatio) {
+			renderer.setPixelRatio(window.devicePixelRatio);
+		}
 		$stage.append(renderer.domElement);
 		
 		// trackball
