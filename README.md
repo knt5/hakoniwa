@@ -15,8 +15,9 @@ Install [QGIS](http://www.qgis.org/) and add GDAL.framework "Programs" directory
 Install gems for gulp tasks.
 
 ```
-gem install sass
-gem install scss_lint
+brew install ruby
+sudo gem install sass
+sudo gem install scss_lint
 ```
 
 Run npm install.
