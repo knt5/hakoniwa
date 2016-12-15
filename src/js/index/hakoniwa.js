@@ -235,11 +235,14 @@ var hakoniwa = (function() {
 	
 	//-----------------------------------------------------------------
 	function isPoorDevice() {
+		/*
 		// TODO: check GPU, OS, ...
 		if ($stage.width() > 320) {
 			return false;
 		}
 		return true;
+		*/
+		return false;
 	}
 	
 	//-----------------------------------------------------------------
